@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //temporarily place module to window so scripts will load themselves to the window object instead of module
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.css">
+    <script src="/semantic/dist/semantic.js"></script>
+    <script>
+        //now that scripts have loaded, put back the module into global scope
+        if (window.module) module = window.module;
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#somefield").html("jquery is working");
+        });
+    </script>
+
+</head>
+<body>
+
+    <div id="somefield">
+    </div>
+
+</body>
+</html>
